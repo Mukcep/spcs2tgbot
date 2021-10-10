@@ -27,13 +27,13 @@ def send_welcome(message):
   if query == '':
     bot.send_message(message.chat.id, "Необходимо указать што будем искатi")
     return False
-  logger.info(f"({message.from_user.first_name}) хочет найти: {query}")
+  logger.info(f"({message.from_user.first_name}) хочет найти: {query}".replace('\n', ''))
   result = SpacesMusicParser.shared_zone_search(query)
   if len(result.tracks) == 0:
     logger.info(f"({message.from_user.first_name}) обкакался и ничего не нашел")
     bot.send_message(message.chat.id, "Ничего нема(")
     return False
-  logger.info(f"({message.from_user.first_name}) нашлось {len(result['tracks'])}")
+  logger.info(f"({message.from_user.first_name}) нашлось {len(result.tracks)}")
   text = 'Вроде шото нашлось, смотри:\n\n'
   markup = InlineKeyboardMarkup()
   markup.row_width = 1
