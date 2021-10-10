@@ -1,7 +1,7 @@
 import os
 import logging
 
-current_dir = os.path.dirname(__file__)
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 logger = logging.getLogger('spcs2tgbot')
 

@@ -8,7 +8,9 @@ from SpacesFileDownloader import SpacesFileDownloader
 
 from logger import logger
 
-if not os.path.isfile(f"{os.path.dirname(__file__)}/.env" ):
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+if not os.path.isfile(f"{current_dir}/.env" ):
   logger.error("Создайте файл .env с токеном")
   exit()
 
